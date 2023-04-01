@@ -25,7 +25,7 @@ module.exports = function (config) {
             : []
       )
       : [
-        'LocalChromium39',
+        // 'LocalChromium39', // TODO: add RegExp support, core-js doesn't work
         'ChromeLatest',
         'FirefoxHeadless',
       ],
