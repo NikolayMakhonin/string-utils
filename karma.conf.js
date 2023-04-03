@@ -16,7 +16,7 @@ module.exports = function (config) {
     browsers: process.env.GITHUB_WORKFLOW
       ? (
         process.platform === 'linux' ? [
-          'ChromiumCI',
+          // 'ChromiumCI',
           'ChromeLatest',
         ]
           : process.platform === 'darwin' ? [
