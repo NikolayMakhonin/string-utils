@@ -6,9 +6,17 @@ export function assertIsFinite(value: number) {
 }
 
 export function parseNumberFloat(text: string) {
-  return assertIsFinite(parseFloat(text))
+  const value = parseFloat(text)
+  if (!Number.isFinite(value)) {
+    throw new Error(`value is not finite: ${text}`)
+  }
+  return value
 }
 
 export function parseNumberInt(text: string) {
-  return assertIsFinite(parseInt(text, 10))
+  const value = parseInt(text, 10)
+  if (!Number.isFinite(value)) {
+    throw new Error(`value is not finite: ${text}`)
+  }
+  return value
 }
