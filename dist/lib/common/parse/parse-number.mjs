@@ -5,10 +5,18 @@ function assertIsFinite(value) {
     return value;
 }
 function parseNumberFloat(text) {
-    return assertIsFinite(parseFloat(text));
+    const value = parseFloat(text);
+    if (!Number.isFinite(value)) {
+        throw new Error(`value is not finite: ${text}`);
+    }
+    return value;
 }
 function parseNumberInt(text) {
-    return assertIsFinite(parseInt(text, 10));
+    const value = parseInt(text, 10);
+    if (!Number.isFinite(value)) {
+        throw new Error(`value is not finite: ${text}`);
+    }
+    return value;
 }
 
 export { assertIsFinite, parseNumberFloat, parseNumberInt };
