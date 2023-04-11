@@ -1,12 +1,17 @@
-export const EMPTY_PROTOCOL = 'af8d84dcb2744318bdba99451742baa5:'
 export const EMPTY_HOST = '0a66b184c2bb4c8fae1d34525c6399a8'
 export const EMPTY_PATH = '/53d2f4a13de341eda24673cbd677bbd6/'
 
-export function urlJoin(...urls: string[]): string {
-  let result: URL = new URL(`${EMPTY_PROTOCOL}//${EMPTY_HOST}${EMPTY_PATH}`)
+export function urlJoin(...urls: (string|URL)[]): string {
+  let result: URL = new URL(`http://${EMPTY_HOST}${EMPTY_PATH}`)
+  let hasProtocol = false
   for (let i = 0, len = urls.length; i < len; i++) {
     const url = urls[i]
     if (url) {
+      if (typeof url === 'string') {
+        if (/^\w+:\/\//.test(url)) {
+          hasProtocol = true
+        }
+      }
       result = new URL(url, result)
     }
   }
@@ -20,7 +25,7 @@ export function urlJoin(...urls: string[]): string {
   if (result.host === EMPTY_HOST) {
     return result.pathname + search + hash
   }
-  if (result.protocol === EMPTY_PROTOCOL) {
+  if (!hasProtocol) {
     return '//' + result.host + result.pathname + search + hash
   }
   return result.href

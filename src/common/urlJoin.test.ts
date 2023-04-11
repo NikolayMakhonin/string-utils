@@ -4,6 +4,19 @@ describe('src > -helpers > urlJoin', function () {
   this.timeout(300000)
 
   it('sync', function () {
+    assert.strictEqual(urlJoin(void 0), '')
+    assert.strictEqual(urlJoin(null), '')
+    assert.strictEqual(urlJoin(void 0, 'protocol2://host2/path2/?search2#hash2'), 'protocol2://host2/path2/?search2#hash2')
+    assert.strictEqual(urlJoin(void 0, '//host2/path2/?search2#hash2'), '//host2/path2/?search2#hash2')
+    assert.strictEqual(urlJoin(void 0, '/host2/path2/?search2#hash2'), '/host2/path2/?search2#hash2')
+    assert.strictEqual(urlJoin(void 0, '/path2/?search2#hash2'), '/path2/?search2#hash2')
+    assert.strictEqual(urlJoin(void 0, '?search2#hash2'), '?search2#hash2')
+    assert.strictEqual(urlJoin(void 0, 'search2#hash2'), 'search2#hash2')
+    assert.strictEqual(urlJoin(void 0, '#hash2'), '#hash2')
+    assert.strictEqual(urlJoin(void 0, 'path2'), 'path2')
+    assert.strictEqual(urlJoin(void 0, ''), '')
+    assert.strictEqual(urlJoin(void 0, '#'), '#')
+
     assert.strictEqual(urlJoin(''), '')
     assert.strictEqual(urlJoin('#'), '#')
     assert.strictEqual(urlJoin('?'), '?')
@@ -28,7 +41,7 @@ describe('src > -helpers > urlJoin', function () {
     assert.strictEqual(urlJoin('/path/?search'), '/path/?search')
     assert.strictEqual(urlJoin('/path/?search#hash'), '/path/?search#hash')
 
-    assert.strictEqual(urlJoin('//host'), '//host')
+    assert.strictEqual(urlJoin('//host'), '//host/')
     assert.strictEqual(urlJoin('//host/'), '//host/')
     assert.strictEqual(urlJoin('//host/?search'), '//host/?search')
     assert.strictEqual(urlJoin('//host/?search#hash'), '//host/?search#hash')
