@@ -30,5 +30,4 @@ exports.dateToString = common_date.dateToString;
 exports.cropText = common_cropText.cropText;
 exports.EMPTY_HOST = common_urlJoin.EMPTY_HOST;
 exports.EMPTY_PATH = common_urlJoin.EMPTY_PATH;
-exports.EMPTY_PROTOCOL = common_urlJoin.EMPTY_PROTOCOL;
 exports.urlJoin = common_urlJoin.urlJoin;

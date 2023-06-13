@@ -2,14 +2,19 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const EMPTY_PROTOCOL = 'af8d84dcb2744318bdba99451742baa5:';
 const EMPTY_HOST = '0a66b184c2bb4c8fae1d34525c6399a8';
 const EMPTY_PATH = '/53d2f4a13de341eda24673cbd677bbd6/';
 function urlJoin(...urls) {
-    let result = new URL(`${EMPTY_PROTOCOL}//${EMPTY_HOST}${EMPTY_PATH}`);
+    let result = new URL(`http://${EMPTY_HOST}${EMPTY_PATH}`);
+    let hasProtocol = false;
     for (let i = 0, len = urls.length; i < len; i++) {
         const url = urls[i];
         if (url) {
+            if (typeof url === 'string') {
+                if (/^\w+:\/\//.test(url)) {
+                    hasProtocol = true;
+                }
+            }
             result = new URL(url, result);
         }
     }
@@ -21,7 +26,7 @@ function urlJoin(...urls) {
     if (result.host === EMPTY_HOST) {
         return result.pathname + search + hash;
     }
-    if (result.protocol === EMPTY_PROTOCOL) {
+    if (!hasProtocol) {
         return '//' + result.host + result.pathname + search + hash;
     }
     return result.href;
@@ -29,5 +34,4 @@ function urlJoin(...urls) {
 
 exports.EMPTY_HOST = EMPTY_HOST;
 exports.EMPTY_PATH = EMPTY_PATH;
-exports.EMPTY_PROTOCOL = EMPTY_PROTOCOL;
 exports.urlJoin = urlJoin;

@@ -24,8 +24,8 @@ return function(n){let r,o=0,a=""
 ;for(;r=e.exec(n);)o!==r.index&&(a+=n.substring(o,r.index)),
 a+=t.get(r[0].charCodeAt(0)),o=r.index+1
 ;return a+n.substring(o)}}
-const A=C(/["&\u00A0]/g,new Map([[34,"&quot;"],[38,"&amp;"],[160,"&nbsp;"]])),w=C(/[&<>\u00A0]/g,new Map([[38,"&amp;"],[60,"&lt;"],[62,"&gt;"],[160,"&nbsp;"]])),x=new Map(["altGlyph","altGlyphDef","altGlyphItem","animateColor","animateMotion","animateTransform","clipPath","feBlend","feColorMatrix","feComponentTransfer","feComposite","feConvolveMatrix","feDiffuseLighting","feDisplacementMap","feDistantLight","feDropShadow","feFlood","feFuncA","feFuncB","feFuncG","feFuncR","feGaussianBlur","feImage","feMerge","feMergeNode","feMorphology","feOffset","fePointLight","feSpecularLighting","feSpotLight","feTile","feTurbulence","foreignObject","glyphRef","linearGradient","radialGradient","textPath"].map((e=>[e.toLowerCase(),e]))),E=new Map(["definitionURL","attributeName","attributeType","baseFrequency","baseProfile","calcMode","clipPathUnits","diffuseConstant","edgeMode","filterUnits","glyphRef","gradientTransform","gradientUnits","kernelMatrix","kernelUnitLength","keyPoints","keySplines","keyTimes","lengthAdjust","limitingConeAngle","markerHeight","markerUnits","markerWidth","maskContentUnits","maskUnits","numOctaves","pathLength","patternContentUnits","patternTransform","patternUnits","pointsAtX","pointsAtY","pointsAtZ","preserveAlpha","preserveAspectRatio","primitiveUnits","refX","refY","repeatCount","repeatDur","requiredExtensions","requiredFeatures","specularConstant","specularExponent","spreadMethod","startOffset","stdDeviation","stitchTiles","surfaceScale","systemLanguage","tableValues","targetX","targetY","textLength","viewBox","viewTarget","xChannelSelector","yChannelSelector","zoomAndPan"].map((e=>[e.toLowerCase(),e]))),T=new Set(["style","script","xmp","iframe","noembed","noframes","plaintext","noscript"])
-;function S(e){return e.replace(/"/g,"&quot;")}
+const A=C(/["&\u00A0]/g,new Map([[34,"&quot;"],[38,"&amp;"],[160,"&nbsp;"]])),w=C(/[&<>\u00A0]/g,new Map([[38,"&amp;"],[60,"&lt;"],[62,"&gt;"],[160,"&nbsp;"]])),x=new Map(["altGlyph","altGlyphDef","altGlyphItem","animateColor","animateMotion","animateTransform","clipPath","feBlend","feColorMatrix","feComponentTransfer","feComposite","feConvolveMatrix","feDiffuseLighting","feDisplacementMap","feDistantLight","feDropShadow","feFlood","feFuncA","feFuncB","feFuncG","feFuncR","feGaussianBlur","feImage","feMerge","feMergeNode","feMorphology","feOffset","fePointLight","feSpecularLighting","feSpotLight","feTile","feTurbulence","foreignObject","glyphRef","linearGradient","radialGradient","textPath"].map((e=>[e.toLowerCase(),e]))),E=new Map(["definitionURL","attributeName","attributeType","baseFrequency","baseProfile","calcMode","clipPathUnits","diffuseConstant","edgeMode","filterUnits","glyphRef","gradientTransform","gradientUnits","kernelMatrix","kernelUnitLength","keyPoints","keySplines","keyTimes","lengthAdjust","limitingConeAngle","markerHeight","markerUnits","markerWidth","maskContentUnits","maskUnits","numOctaves","pathLength","patternContentUnits","patternTransform","patternUnits","pointsAtX","pointsAtY","pointsAtZ","preserveAlpha","preserveAspectRatio","primitiveUnits","refX","refY","repeatCount","repeatDur","requiredExtensions","requiredFeatures","specularConstant","specularExponent","spreadMethod","startOffset","stdDeviation","stitchTiles","surfaceScale","systemLanguage","tableValues","targetX","targetY","textLength","viewBox","viewTarget","xChannelSelector","yChannelSelector","zoomAndPan"].map((e=>[e.toLowerCase(),e]))),S=new Set(["style","script","xmp","iframe","noembed","noframes","plaintext","noscript"])
+;function T(e){return e.replace(/"/g,"&quot;")}
 const F=new Set(["area","base","basefont","br","col","command","embed","frame","hr","img","input","isindex","keygen","link","meta","param","source","track","wbr"])
 ;function k(e,t={}){const n="length"in e?e:[e]
 ;let r="";for(let e=0;e<n.length;e++)r+=N(n[e],t)
@@ -41,7 +41,7 @@ e.parent&&D.has(e.parent.name)&&(t={...t,
 xmlMode:!1}));!t.xmlMode&&O.has(e.name)&&(t={...t,
 xmlMode:"foreign"});let r=`<${e.name}`
 ;const o=function(e,t){var n;if(!e)return
-;const r=!1===(null!==(n=t.encodeEntities)&&void 0!==n?n:t.decodeEntities)?S:t.xmlMode||"utf8"!==t.encodeEntities?y:A
+;const r=!1===(null!==(n=t.encodeEntities)&&void 0!==n?n:t.decodeEntities)?T:t.xmlMode||"utf8"!==t.encodeEntities?y:A
 ;return Object.keys(e).map((n=>{var o,a
 ;const i=null!==(o=e[n])&&void 0!==o?o:""
 ;return"foreign"===t.xmlMode&&(n=null!==(a=E.get(n))&&void 0!==a?a:n),
@@ -52,7 +52,7 @@ r+="/>"):(r+=">",
 e.children.length>0&&(r+=k(e.children,t)),!t.xmlMode&&F.has(e.name)||(r+=`</${e.name}>`))
 ;return r}(e,t);case r:return function(e,t){var n
 ;let r=e.data||""
-;!1===(null!==(n=t.encodeEntities)&&void 0!==n?n:t.decodeEntities)||!t.xmlMode&&e.parent&&T.has(e.parent.name)||(r=t.xmlMode||"utf8"!==t.encodeEntities?y(r):w(r))
+;!1===(null!==(n=t.encodeEntities)&&void 0!==n?n:t.decodeEntities)||!t.xmlMode&&e.parent&&S.has(e.parent.name)||(r=t.xmlMode||"utf8"!==t.encodeEntities?y(r):w(r))
 ;return r}(e,t)}}
 const D=new Set(["mi","mo","mn","ms","mtext","annotation-xml","foreignObject","desc","title"]),O=new Set(["svg","math"])
 ;function M(e,t){return k(e,t)}function P(e){
@@ -340,7 +340,7 @@ const Ae=/[-[\]{}()*+?.,\\^$|#\s]/g
 const xe=new Set(["accept","accept-charset","align","alink","axis","bgcolor","charset","checked","clear","codetype","color","compact","declare","defer","dir","direction","disabled","enctype","face","frame","hreflang","http-equiv","lang","language","link","media","method","multiple","nohref","noresize","noshade","nowrap","readonly","rel","rev","rules","scope","scrolling","selected","shape","target","text","type","valign","valuetype","vlink"])
 ;function Ee(e,t){
 return"boolean"==typeof e.ignoreCase?e.ignoreCase:"quirks"===e.ignoreCase?!!t.quirksMode:!t.xmlMode&&xe.has(e.name)
-}const Te={equals(e,t,n){
+}const Se={equals(e,t,n){
 const{adapter:r}=n,{name:o}=t;let{value:a}=t
 ;return Ee(t,n)?(a=a.toLowerCase(),t=>{
 const n=r.getAttributeValue(t,o)
@@ -390,7 +390,7 @@ const i=r.getAttributeValue(n,o)
 t=>{const n=r.getAttributeValue(t,o)
 ;return(null==n||n.length!==a.length||n.toLowerCase()!==a)&&e(t)
 }):t=>r.getAttributeValue(t,o)!==a&&e(t)}
-},Se=new Set([9,10,12,13,32]),Fe="0".charCodeAt(0),ke="9".charCodeAt(0)
+},Te=new Set([9,10,12,13,32]),Fe="0".charCodeAt(0),ke="9".charCodeAt(0)
 ;function Ne(e){return function(e){
 const t=e[0],n=e[1]-1
 ;if(n<0&&t<=0)return oe.falseFunc
@@ -409,7 +409,7 @@ return"-"===e.charAt(t)?(t++,-1):("+"===e.charAt(t)&&t++,
 1)}function i(){const n=t;let r=0
 ;for(;t<e.length&&e.charCodeAt(t)>=Fe&&e.charCodeAt(t)<=ke;)r=10*r+(e.charCodeAt(t)-Fe),
 t++;return t===n?null:r}function s(){
-for(;t<e.length&&Se.has(e.charCodeAt(t));)t++}
+for(;t<e.length&&Te.has(e.charCodeAt(t));)t++}
 }(e))}function De(e,t){return n=>{
 const r=t.getParent(n)
 ;return null!=r&&t.isTag(r)&&e(n)}}const Oe={
@@ -534,7 +534,7 @@ throw new Error("Column combinators are not yet supported by css-select")
 ;case te.Attribute:
 if(null!=t.namespace)throw new Error("Namespaced attributes are not yet supported by css-select")
 ;return n.xmlMode&&!n.lowerCaseAttributeNames||(t.name=t.name.toLowerCase()),
-Te[t.action](e,t,n);case te.Pseudo:
+Se[t.action](e,t,n);case te.Pseudo:
 return function(e,t,n,r,o){var a
 ;const{name:i,data:s}=t;if(Array.isArray(s)){
 if(!(i in _e))throw new Error(`Unknown pseudo-class :${i}(${s})`)
@@ -639,9 +639,9 @@ timeZone:t
 timeZone:n}))
 ;return new Date(e.getTime()+o.getTime()-r.getTime())
 }
-var ct="af8d84dcb2744318bdba99451742baa5:",dt="0a66b184c2bb4c8fae1d34525c6399a8",ft="/53d2f4a13de341eda24673cbd677bbd6/"
-;return e.EMPTY_HOST=dt,
-e.EMPTY_PATH=ft,e.EMPTY_PROTOCOL=ct,e.assertIsFinite=function(e){
+var ct="0a66b184c2bb4c8fae1d34525c6399a8",dt="/53d2f4a13de341eda24673cbd677bbd6/"
+;return e.EMPTY_HOST=ct,
+e.EMPTY_PATH=dt,e.assertIsFinite=function(e){
 if(!Number.isFinite(e))throw new Error("value is not finite: ".concat(e))
 ;return e
 },e.convertTimeZone=ut,e.cropText=function(e,t,n){
@@ -676,16 +676,17 @@ var n=st(e,t);return n.length?n[0]:null
 var n=st(e,t,0,1);return n.length?n[0]:null
 },e.urlJoin=function(){
 for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t]
-;for(var n=new URL("".concat(ct,"//").concat(dt).concat(ft)),r=0,o=e.length;r<o;r++){
-var a=e[r];a&&(n=new URL(a,n))}
-var i=function(e,t){
+;for(var n=new URL("http://".concat(ct).concat(dt)),r=!1,o=0,a=e.length;o<a;o++){
+var i=e[o]
+;i&&("string"==typeof i&&/^\w+:\/\//.test(i)&&(r=!0),n=new URL(i,n))
+}var s=function(e,t){
 var n="function"==typeof Symbol&&e[Symbol.iterator]
 ;if(!n)return e;var r,o,a=n.call(e),i=[];try{
 for(;(void 0===t||t-- >0)&&!(r=a.next()).done;)i.push(r.value)
 }catch(e){o={error:e}}finally{try{
 r&&!r.done&&(n=a.return)&&n.call(a)}finally{
 if(o)throw o.error}}return i
-}(n.href.match(/((?:\?[^#+]*)?)((?:#.*)?)$/s),3),s=i[1],l=i[2]
-;return n.pathname.startsWith(ft)?n.pathname.substring(ft.length)+s+l:n.host===dt?n.pathname+s+l:n.protocol===ct?"//"+n.host+n.pathname+s+l:n.href
+}(n.href.match(/((?:\?[^#+]*)?)((?:#.*)?)$/s),3),l=s[1],u=s[2]
+;return n.pathname.startsWith(dt)?n.pathname.substring(dt.length)+l+u:n.host===ct?n.pathname+l+u:r?n.href:"//"+n.host+n.pathname+l+u
 },Object.defineProperty(e,"__esModule",{value:!0
 }),e}({});
