@@ -1,6 +1,6 @@
 {
   "name": "@flemist/string-utils",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "String utils",
   "main": "dist/lib/node/index.cjs",
   "module": "dist/lib/node/index.mjs",
@@ -136,7 +136,7 @@
   "dependencies": {
     "css-select": "5.1.0",
     "domhandler": "5.0.3",
-    "domutils": "3.0.1",
+    "domutils": "3.1.0",
     "tslib": "^2.5.0"
   }
 }
