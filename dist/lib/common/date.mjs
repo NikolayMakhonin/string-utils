@@ -1,5 +1,5 @@
-function convertTimeZone(date, timeZoneFrom, // default timeZone is Local
-timeZoneTo) {
+/** Default time zone is Local */
+function convertTimeZone(date, timeZoneFrom, timeZoneTo) {
     const dateFrom = timeZoneFrom == null
         ? date
         : new Date(date.toLocaleString('en-US', {
@@ -13,6 +13,7 @@ timeZoneTo) {
     const result = new Date(date.getTime() + dateTo.getTime() - dateFrom.getTime());
     return result;
 }
+/** Default timeZone is Local */
 function dateToString(date, timeZone) {
     date = convertTimeZone(date, 'UTC', timeZone);
     const year = date.getUTCFullYear().toString().padStart(4, '0');
