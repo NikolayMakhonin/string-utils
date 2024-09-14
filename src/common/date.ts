@@ -1,7 +1,8 @@
+/** Default time zone is Local */
 export function convertTimeZone(
   date: Date,
-  timeZoneFrom?: string | null, // default timeZone is Local
-  timeZoneTo?: string | null, // default timeZone is Local
+  timeZoneFrom?: string | null,
+  timeZoneTo?: string | null,
 ): Date {
   const dateFrom = timeZoneFrom == null
     ? date
@@ -24,7 +25,8 @@ export function convertTimeZone(
   return result
 }
 
-export function dateToString(date: Date, timeZone: string): string {
+/** Default timeZone is Local */
+export function dateToString(date: Date, timeZone?: string | null): string {
   date = convertTimeZone(date, 'UTC', timeZone)
 
   const year = date.getUTCFullYear().toString().padStart(4, '0')

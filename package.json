@@ -1,6 +1,6 @@
 {
   "name": "@flemist/string-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "String utils",
   "main": "dist/lib/node/index.cjs",
   "module": "dist/lib/node/index.mjs",
